@@ -20,13 +20,10 @@
         "prettier"
     ],
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
+        "indent": "off",
         "linebreak-style": [
             "error",
-            "linux"
+            "unix"
         ],
         "quotes": [
             "error",
