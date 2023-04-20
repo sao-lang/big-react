@@ -1,5 +1,10 @@
-import { resolvePkgPath, resolvePkgJson, resolveBaseRollupPlugins } from './utils.js';
+import {
+    resolvePkgPath,
+    resolvePkgJson,
+    resolveBaseRollupPlugins
+} from './utils.js';
 import { defineConfig } from 'rollup';
+import generatePackageJson from 'rollup-plugin-generate-package-json';
 
 const { name, module } = resolvePkgJson('react');
 
@@ -23,7 +28,16 @@ export default defineConfig([
             name: 'index.js',
             format: 'umd'
         },
-        plugins: resolveBaseRollupPlugins()
+        plugins: [
+            ...resolveBaseRollupPlugins(),
+            generatePackageJson({
+                input: pkgPath,
+                outputFolder: distPath,
+                baseContents: ({ name, description, version }) => {
+                    return { name, description, version, main: 'index.js' };
+                }
+            })
+        ]
     },
     // jsx-runtime
     {

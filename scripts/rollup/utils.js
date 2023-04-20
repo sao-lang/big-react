@@ -37,6 +37,8 @@ export const resolvePkgJson = (name) => {
 /**
  * 解析rollup的插件
  */
-export const resolveBaseRollupPlugins = ({typescript = {}} = {}) => {
+export const resolveBaseRollupPlugins = ({
+    typescript = { module: 'esnext' }
+} = {}) => {
     return [ts(typescript), cjs()];
 };

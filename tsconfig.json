@@ -14,11 +14,15 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "esModuleInterop": true,
-        "noEmit": true,
+        // "noEmit": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noImplicitReturns": false,
         "skipLibCheck": true,
-        "baseUrl": "./packages"
+        "baseUrl": "./packages",
+        // "outDir": "./dist",
+        // "declaration": true, /* 生成相关的 '.d.ts' 文件。 */
+        // "declarationDir": "./dist/types", /* '.d.ts' 文件输出目录 */
+        // "emitDeclarationOnly": true, /* 只生成声明文件，不生成 js 文件*/
     }
 }
